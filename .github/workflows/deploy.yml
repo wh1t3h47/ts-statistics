@@ -26,6 +26,6 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@users.noreply.github.com'
           yarn run deploy
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
