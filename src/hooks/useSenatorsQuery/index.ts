@@ -6,7 +6,10 @@ export function useSenatorsQuery() {
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        const fetchData = async () => {
+
+        // @fixme: Precisamos de um back ou pedir pra habilitar * no CORS
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const _fetchData = async () => {
             try {
                 const response = await fetch('https://api.propublica.org/congress/v1/members/senate.json', {
                     headers: ({
