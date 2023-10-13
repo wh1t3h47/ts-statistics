@@ -29,6 +29,6 @@ jobs:
           git config user.name 'GitHub Actions'
           git config user.email 'actions@users.noreply.github.com'
           git remote add origin_with_token https://$GH_TOKEN@github.com/username/repo.git
-          git push origin_with_token main # ou a branch que você deseja implantar
+          git push origin_with_token master
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
