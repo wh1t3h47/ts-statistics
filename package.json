@@ -2,6 +2,7 @@
   "name": "senators-charts",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://wh1t3h47.github.io/ts-statistics/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
