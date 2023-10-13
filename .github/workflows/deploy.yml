@@ -26,10 +26,9 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@users.noreply.github.com'
-          git config --global credential.helper store
-          echo "${GH_TOKEN}" | git credential-store store
-          yarn run deploy
+          git config user.name 'GitHub Actions'
+          git config user.email 'actions@users.noreply.github.com'
+          git remote add origin_with_token https://$GH_TOKEN@github.com/username/repo.git
+          git push origin_with_token main # ou a branch que você deseja implantar
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
