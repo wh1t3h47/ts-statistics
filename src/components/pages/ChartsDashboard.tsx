@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Card } from "../molecules/Card";
 import { useSenatorsQuery } from "../../hooks/useSenatorsQuery";
 import { useBitcoinQuery } from "../../hooks/useBitcoinQuery";
-import { BitcoinNegotiationsParetoChart } from "../organisms/BitcoinNegotiationsParetoChart";
 
 const ChartsDashboard = () => {
   const { loading } = useSenatorsQuery();
@@ -11,6 +10,8 @@ const ChartsDashboard = () => {
   const [partyDistributionChart, setPartyDistributionChart] =
     useState<JSX.Element | null>(null);
   const [topContributingChart, setTopContributingChart] =
+    useState<JSX.Element | null>(null);
+  const [bitcoinNegotiationsChart, setBitcoinNegotiationsChart] =
     useState<JSX.Element | null>(null);
 
   useEffect(() => {
@@ -21,11 +22,19 @@ const ChartsDashboard = () => {
       .then(() => {
         import("../organisms/TopContributingBarChart").then((module) => {
           setTopContributingChart(<module.TopContributingBarChart />);
+        });
+      })
+      .then(() => {
+        import("../organisms/BitcoinNegotiationsParetoChart").then((module) => {
+          setBitcoinNegotiationsChart(
+            <module.BitcoinNegotiationsParetoChart />
+          );
           setImportLoading(false);
         });
       })
       .catch((error) => {
         console.error(error);
+        setImportLoading(false);
       });
   }, []);
 
@@ -47,7 +56,7 @@ const ChartsDashboard = () => {
         title="Distribuição de volume de negociações por criptomoeda:"
         {...{ isLoading }}
       >
-        <BitcoinNegotiationsParetoChart />
+        {bitcoinNegotiationsChart}
       </Card>
     </div>
   );
