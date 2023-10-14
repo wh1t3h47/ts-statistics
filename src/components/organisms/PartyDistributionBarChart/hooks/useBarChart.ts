@@ -2,12 +2,12 @@ import { usePartyDistribution } from "./usePartyDistribution";
 import { scaleBand, scaleLinear } from "@visx/scale";
 
 export const useBarChart = () => {
-    const { loading, barData } = usePartyDistribution();
+    const { barData } = usePartyDistribution();
 
     const barWidth = 30;
     const width = 500;
     const height = 400;
-    const margin = { top: 50, right: 30, bottom: 40, left: 40 };
+    const margin = { top: 50, right: 15, bottom: 60, left: 80 };
 
     const xScale = scaleBand<string>({
         domain: barData.map((d) => d.label),
@@ -20,5 +20,5 @@ export const useBarChart = () => {
         range: [height - margin.bottom, margin.top],
     });
 
-    return { loading, barData, xScale, yScale, width, height, margin, barWidth };
+    return { barData, xScale, yScale, width, height, margin, barWidth };
 }

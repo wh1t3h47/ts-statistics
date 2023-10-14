@@ -3,7 +3,7 @@ import { SenatorData } from "../../../../hooks/types/senator";
 import { useSenatorsQuery } from "../../../../hooks/useSenatorsQuery";
 
 const usePartyDistribution = () => {
-    const { senators, loading } = useSenatorsQuery();
+    const { senators, } = useSenatorsQuery();
 
     const getPartyCounts = (senatorsData: SenatorData) => {
         const partyCounts: Record<string, number> = {};
@@ -35,7 +35,7 @@ const usePartyDistribution = () => {
         [senators]
     );
 
-    return { senators, loading, barData };
+    return { senators, barData };
 };
 
 

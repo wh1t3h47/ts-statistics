@@ -5,7 +5,7 @@ import { useSenatorsQuery } from "../../../../hooks/useSenatorsQuery";
 const TOTAL_SENATORS = 5;
 
 const useTopContributingSenators = () => {
-  const { senators, loading } = useSenatorsQuery();
+  const { senators } = useSenatorsQuery();
 
   const getTopSenators = (senatorsData: SenatorData) => {
     const sortedSenators = senatorsData?.results?.[0]?.members || [];
@@ -33,7 +33,7 @@ const useTopContributingSenators = () => {
 
   const topSenators = useMemo(() => getTopSenators(senators), [senators]);
 
-  return { senators, loading, topSenators };
+  return { senators, topSenators };
 };
 
 export { useTopContributingSenators };

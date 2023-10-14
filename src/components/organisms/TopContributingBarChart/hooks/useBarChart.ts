@@ -2,12 +2,12 @@ import { useTopContributingSenators } from "./useTopContributingSenators";
 import { scaleBand, scaleLinear } from "@visx/scale";
 
 export const useBarChart = () => {
-  const { loading, topSenators } = useTopContributingSenators();
+  const { topSenators } = useTopContributingSenators();
 
   const barWidth = 15;
   const width = 800;
   const height = 400;
-  const margin = { top: 50, right: 30, bottom: 40, left: 40 };
+  const margin = { top: 50, right: 15, bottom: 60, left: 80 };
 
   const xScale = scaleBand<string>({
     domain: topSenators.map(
@@ -26,7 +26,7 @@ export const useBarChart = () => {
   });
 
   return {
-    loading,
+
     topSenators,
     xScale,
     yScale,

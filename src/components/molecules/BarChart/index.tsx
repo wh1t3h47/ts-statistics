@@ -20,7 +20,6 @@ interface BarChartProps {
   xUnit: string;
   yUnit: string;
   margin: { top: number; right: number; bottom: number; left: number };
-  strokeWidth?: number;
 }
 
 const BarChart: React.FC<BarChartProps> = ({
@@ -33,11 +32,10 @@ const BarChart: React.FC<BarChartProps> = ({
   xUnit,
   yUnit,
   margin,
-  strokeWidth = 1,
 }) => {
   const innerHeight = height - margin.top;
-  const axisLineClassName = "stroke-2 sm:stroke-[1.5] md:stroke-1";
-  const tickClassName = "stroke-[3] sm:stroke-[1.5] md:stroke-1";
+  const axisLineClassName = "stroke-[3] sm:stroke-2 md:stroke-2";
+  const tickClassName = "stroke-[3] sm:stroke-2 md:stroke-2";
 
   return (
     <ScaleSVG width={width} height={height}>
@@ -61,11 +59,13 @@ const BarChart: React.FC<BarChartProps> = ({
                   (xScale(d.label) || 0) +
                   (xScale.bandwidth() - barWidth) / 2 -
                   margin.left +
-                  barWidth / 2
+                  barWidth +
+                  25
                 }
-                y={-50}
+                y={20 - margin.bottom}
                 textAnchor="middle"
-                fill="black"
+                className="fill-green-500"
+                fontSize={18}
               >
                 {d.value}
               </text>
@@ -76,14 +76,21 @@ const BarChart: React.FC<BarChartProps> = ({
           scale={xScale}
           top={height - margin.bottom}
           label={xUnit}
-          {...{ axisLineClassName, tickClassName, strokeWidth: "" }}
+          {...{
+            axisLineClassName,
+            tickClassName,
+            strokeWidth: "",
+          }}
+          labelProps={{ fontSize: 16, dy: 8 }}
+          tickLabelProps={{ fontSize: 17 }}
         />
         <AxisLeft
           scale={yScale}
           left={margin.left}
           label={yUnit}
-          labelProps={{ x: -40, dy: "1em", transform: undefined }}
+          labelProps={{ x: -80, dy: 60, transform: "", fontSize: 22 }}
           {...{ axisLineClassName, tickClassName, strokeWidth: "" }}
+          tickLabelProps={{ fontSize: 17 }}
         />
       </svg>
     </ScaleSVG>

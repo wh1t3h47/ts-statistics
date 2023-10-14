@@ -6,7 +6,7 @@ const TopContributingBarChart: React.FC = () => {
   const {
     topSenators,
     height,
-    loading,
+
     margin,
     width,
     xScale,
@@ -15,27 +15,17 @@ const TopContributingBarChart: React.FC = () => {
   } = useBarChart();
 
   return (
-    <>
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <div>
-          <h2 className="text-center text-2xl font-bold">
-            Top 5 contribuidores no senado (EUA):
-          </h2>
-          <BarChart
-            data={topSenators.map((senator) => ({
-              label: senator.first_name + " " + senator.last_name,
-              value: senator.votes_with_party_pct,
-            }))}
-            xUnit="Senador"
-            yUnit="Porcentagem"
-            strokeWidth={4}
-            {...{ xScale, yScale, margin, width, height, barWidth }}
-          />
-        </div>
-      )}
-    </>
+    <div className="lg:min-w-[40rem]">
+      <BarChart
+        data={topSenators.map((senator) => ({
+          label: senator.first_name + " " + senator.last_name,
+          value: senator.votes_with_party_pct,
+        }))}
+        xUnit="Senador"
+        yUnit="Porcentagem"
+        {...{ xScale, yScale, margin, width, height, barWidth }}
+      />
+    </div>
   );
 };
 

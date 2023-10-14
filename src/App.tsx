@@ -1,8 +1,6 @@
 import "./App.css";
-import { SenatorCharts } from "./components/molecules/SenatorCharts";
+import { ChartsDashboard } from "./components/pages/ChartsDashboard";
 
-function App() {
-  return <SenatorCharts />;
-}
+const App = () => <ChartsDashboard />;
 
 export default App;
