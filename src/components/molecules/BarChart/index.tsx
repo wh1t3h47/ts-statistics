@@ -33,7 +33,7 @@ const BarChart: React.FC<BarChartProps> = ({
   yUnit,
   margin,
 }) => {
-  const innerHeight = height - margin.top;
+  const innerHeight = height - margin.bottom;
   const axisLineClassName = "stroke-[3] sm:stroke-2 md:stroke-2";
   const tickClassName = "stroke-[3] sm:stroke-2 md:stroke-2";
 
@@ -49,7 +49,7 @@ const BarChart: React.FC<BarChartProps> = ({
                   (xScale.bandwidth() - barWidth) / 2 -
                   margin.left
                 }
-                y={-margin.bottom}
+                y={-margin.top}
                 width={barWidth}
                 height={innerHeight - yScale(d.value)}
                 fill="#4caf50"
