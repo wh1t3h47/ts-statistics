@@ -31,7 +31,7 @@ const ChartsDashboard = () => {
   return (
     <div className="flex flex-wrap justify-center">
       <Card
-        title="Distribuição de partidos ocupando <br />
+        title="Distribuição de partidos ocupando
             posições no senado (EUA):"
         {...{ isLoading }}
       >
