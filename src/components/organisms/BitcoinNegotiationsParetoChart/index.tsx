@@ -1,6 +1,5 @@
 import React from "react";
 import { useParetoChart } from "./hooks/useParetoChart";
-import { BarChart } from "../BarChart";
 import { ParetoChart } from "../ParetoChart";
 
 export const BitcoinNegotiationsParetoChart: React.FC = () => {

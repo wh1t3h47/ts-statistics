@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "../molecules/Card";
 import { useSenatorsQuery } from "../../hooks/useSenatorsQuery";
-import { ParetoChart } from "../organisms/ParetoChart";
 import { useBitcoinQuery } from "../../hooks/useBitcoinQuery";
 import { BitcoinNegotiationsParetoChart } from "../organisms/BitcoinNegotiationsParetoChart";
 

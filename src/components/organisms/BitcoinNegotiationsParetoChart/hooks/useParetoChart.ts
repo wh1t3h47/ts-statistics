@@ -10,7 +10,7 @@ export const useParetoChart = () => {
     }));
 
     const barWidth = 30;
-    const width = 500;
+    const width = 800;
     const height = 400;
     const margin = { top: 50, right: 0, bottom: 60, left: 130 };
 

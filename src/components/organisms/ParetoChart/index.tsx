@@ -3,7 +3,6 @@ import { ScaleSVG } from "@visx/responsive";
 import { AxisBottom, AxisLeft } from "@visx/axis";
 import { Group } from "@visx/group";
 import { Line, Circle } from "@visx/shape";
-import { Text } from "@visx/text";
 import { scaleBand, scaleLinear } from "@visx/scale";
 import { max } from "d3-array";
 import { LinePath } from "@visx/shape";
@@ -31,6 +30,9 @@ const ParetoChart: React.FC<ParetoChartProps> = ({
   yUnit,
   margin,
 }) => {
+  const axisLineClassName = "stroke-[3] sm:stroke-2 md:stroke-2";
+  const tickClassName = "stroke-[3] sm:stroke-2 md:stroke-2";
+
   const cumulativeData = useMemo(() => {
     const total = data.reduce((sum, { value }) => sum + value, 0);
     let cumulativeSum = 0;
@@ -118,6 +120,9 @@ const ParetoChart: React.FC<ParetoChartProps> = ({
           label={xUnit}
           labelProps={{ fontSize: 16, dy: 8 }}
           tickLabelProps={{ fontSize: 17 }}
+          tickClassName={tickClassName}
+          tickLineProps={{ strokeWidth: "" }}
+          axisLineClassName={axisLineClassName}
         />
         <AxisLeft
           scale={yScale}
@@ -125,6 +130,9 @@ const ParetoChart: React.FC<ParetoChartProps> = ({
           label={yUnit}
           labelProps={{ x: -80, dy: 60, transform: "", fontSize: 22 }}
           tickLabelProps={{ fontSize: 17 }}
+          axisLineClassName={axisLineClassName}
+          tickClassName={tickClassName}
+          tickLineProps={{ strokeWidth: "" }}
         />
         {paretoIndex >= 0 && (
           <LinePath
