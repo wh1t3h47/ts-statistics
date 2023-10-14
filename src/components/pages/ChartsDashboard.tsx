@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "../molecules/Card";
-import { PartyDistributionBarChart } from "../organisms/PartyDistributionBarChart";
-import { TopContributingBarChart } from "../organisms/TopContributingBarChart";
 import { useSenatorsQuery } from "../../hooks/useSenatorsQuery";
 
 const ChartsDashboard = () => {
