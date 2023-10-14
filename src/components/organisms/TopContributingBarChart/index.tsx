@@ -1,6 +1,6 @@
 import React from "react";
 import { useBarChart } from "./hooks/useBarChart";
-import { BarChart } from "../../molecules/BarChart";
+import { BarChart } from "../BarChart";
 
 const TopContributingBarChart: React.FC = () => {
   const {

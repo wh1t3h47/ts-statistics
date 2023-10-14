@@ -52,7 +52,7 @@ const BarChart: React.FC<BarChartProps> = ({
                 y={-margin.top}
                 width={barWidth}
                 height={innerHeight - yScale(d.value)}
-                fill="#4caf50"
+                className="fill-green-500"
               />
               <text
                 x={

@@ -1,6 +1,6 @@
 import React from "react";
-import { BarChart } from "../../molecules/BarChart";
 import { useBarChart } from "./hooks/useBarChart";
+import { BarChart } from "../BarChart";
 
 const PartyDistributionBarChart: React.FC = () => {
   const { barData, height, margin, width, xScale, yScale, barWidth } =

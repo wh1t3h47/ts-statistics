@@ -14,7 +14,7 @@ export function useSenatorsQuery() {
                 const response = await fetch('https://api.propublica.org/congress/v1/members/senate.json', {
                     headers: ({
                         'X-API-Key': process.env.REACT_APP_API_KEY,
-                    }) as never,
+                    }) as HeadersInit,
                 });
 
                 const data = await response.json() as SenatorData;
